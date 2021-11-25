@@ -5,6 +5,9 @@ pipeline {
 			failFast true 
 			parallel {
 				stage('stage1') {
+					when {
+						branch 'dev'
+					}
 					steps {
 						echo 'Stage1 is running'
 						sleep 10

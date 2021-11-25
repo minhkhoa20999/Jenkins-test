@@ -1,20 +1,27 @@
 pipeline {
 	agent any 
 	stages {
-		stage('Build master') {
-			when {
-				branch 'master'
-			}
-			steps {
-				echo 'Building master'
-			}
-		}
-		stage('Build dev') {
-			when {
-				branch 'dev'
-			}
-			steps {
-				echo 'Building dev'
+		stage('stages running parallel') {
+			failFast true 
+			parallel {
+				stage('stage1') {
+					steps {
+						echo 'Stage1 is running'
+						sleep 10
+					}
+				} 
+				stage('stage2'){
+					steps {
+						echo 'Stage2 is running'
+						sleep 10
+					}
+				}
+				stage('stage3'){
+					steps {
+						echo 'Stage3 is running'
+						sleep 10
+					}
+				}
 			}
 		}
 	}

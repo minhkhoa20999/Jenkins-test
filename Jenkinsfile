@@ -14,12 +14,18 @@ pipeline {
 					}
 				} 
 				stage('stage2'){
+					when {
+						branch 'master'
+					}
 					steps {
 						echo 'Stage2 is running'
 						sleep 10
 					}
 				}
 				stage('stage3'){
+					when {
+						branch 'master'
+					}
 					steps {
 						echo 'Stage3 is running'
 						sleep 10

@@ -11,10 +11,15 @@ pipeline {
 		}
 		stage('Build dev') {
 			when {
-				branch 'dev'
+				branch 'test'
 			}
 			steps {
 				echo 'Building dev'
+			}
+		}
+		stage('Build default') {
+			steps {
+				echo 'Building default'
 			}
 		}
 	}

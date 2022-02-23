@@ -17,5 +17,10 @@ pipeline {
 				echo 'Building dev'
 			}
 		}
+		stage('Build default') {
+			steps {
+				echo 'Building default'
+			}
+		}
 	}
 }
